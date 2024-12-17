@@ -1,0 +1,100 @@
+{% extends 'home.html' %}
+
+
+{% block title %}Account{% endblock %}
+
+
+
+{%block body %}
+
+<nav>
+    <div id="logo"><img src="{{url_for('static',filename='assets/bankLogo.png')}}" alt="logo" srcset=""></div>
+    <div id="notification">
+        <button ><a href="{{ url_for('logout') }}">Logout</a></button>
+        <button><img src="{{url_for('static',filename='assets/notification.svg')}}" alt="" srcset=""></button>
+    </div>
+    
+</nav>
+
+<header id="accountInfoBox">
+    <h2>{{first_name}}</h2>
+    <h3>{{balance}}</h3>
+    <div id="bankOptions">
+        <button  type="button" onclick="showPayMenu()">Transfer/Buy</button>
+        <button type="button"><a href="{{ url_for('get_statement') }}" class="btn" download>Get Statement</a></button>
+
+
+
+    </div>
+    <div id="transactions">
+        <table>
+            <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Transaction type</th>
+                    <th>Amount</th>
+                  </tr>
+            </thead>
+
+            <tbody>
+                {% for trans in user_transactions %}
+                    <tr>
+                        <td>{{trans.trans_date}}</td>
+                        <td>{{trans.trans_type}}</td>
+                        <td>{{trans.trans_amount}}</td>
+                    </tr>
+                {%else%}
+                    <tr>
+                        <td colspan="3">No transactions available</td>
+                    </tr>
+
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+
+</header>
+
+<form id="transaction-form" class="form-container form-popup" method="POST" action="/addTransaction">
+            <label>
+                <input type="radio" name="transactionOption" value="transfer" id="transferRadio"> Transfer
+            </label>
+            <label>
+                <input type="radio" name="transactionOption" value="buy" id="buyRadio" > Buy
+            </label>
+
+            <!-- Fields for Option 1 -->
+            <div class="form-group" id="fields-transfer" style="display: none;">
+
+                <input type="email" id="transfer-email" name="transfer-email" placeholder="Enter recipient email" required>
+
+
+                <input type="text" id="" name="transfer-amount" placeholder="Enter amount" required>
+            </div>
+
+            <!-- Fields for Option 2 -->
+            <div class="form-group" id="fields-buy" style="display: none;">
+                <label for="select-buy">Select item</label>
+                <select name="select-buy" id="select-buy" required>
+                    <option value="airtime">Airtime</option>
+                    <option value="electricity">Electricity</option>
+                    <option value="voucher">Voucher</option>
+                </select>
+
+
+                <input type="text" id="buy-amount" name="buy-amount" placeholder="Enter amount(R10-1000)" >
+            </div>
+
+            <button type="submit" class="btn">Submit</button>
+            <button type="button" class="btn" onclick="closePayMenu()">Cancel</button>
+        </form>
+
+
+
+
+
+
+{%endblock%}

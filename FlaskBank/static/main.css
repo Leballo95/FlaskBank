@@ -1,0 +1,189 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+button>a{
+  color: black;
+}
+
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: gold;
+  height: 130px;
+
+}
+
+#navOptions{
+  display:flex;
+ 
+
+}
+
+.navButtons{
+  background-color: white;
+  color: black;
+  margin-right:2em;
+  width:90px;
+  height: 35px;
+  border-radius: 15px;
+  margin-top: 35%;
+  
+  font-weight: bold;
+  
+}
+
+.navButtons:hover{
+  
+  background-color: gold;
+}
+
+#logo{
+  height: 120px;
+}
+
+#logo>img{
+  height:100%
+}
+
+
+
+
+
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+
+  bottom: 15%;
+  left:45%;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password],.form-container input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: gold;
+  color: black;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+#notification>button{
+  border: none;
+  background:none;
+  margin-right:70px;
+ 
+  margin-top: 15%;
+
+}
+#notification{
+  display: flex;
+  flex-direction: row;
+  
+
+  
+  
+}
+
+#notification>button>img{
+  height:35px;
+}
+
+/***AccountView*****/
+
+#accountInfoBox{
+  display: flex;
+  flex-direction: column;
+  margin-inline:30%;
+  text-align: center;
+  background-color: white;
+  border: solid black 2px;
+
+  
+}
+
+#accountInfoBox>*{
+  margin-bottom:15px;
+}
+
+#bankOptions>*{
+  border-radius: 15px;
+  color: black;
+  padding: 5px;
+  color: black;
+  background-color: gold;
+  font-weight: bold;
+}
+table, th, td {
+  border: 1px solid black;
+  
+}
+table{
+  width: 100%;
+}
+
+
+#notification>:nth-child(1){
+  color: black;
+  background-color: gold;
+  border-radius: 15px;
+  font-weight: bold;
+  padding:5px;
+  height: fit-content;
+  border: solid black 2px;
+  margin-top:65px;
+  
+
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}

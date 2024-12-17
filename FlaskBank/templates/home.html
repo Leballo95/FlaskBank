@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{%block title %}Home{% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+</head>
+<body>
+{% block body %}
+
+<nav>
+  <div id="logo"><img src="{{url_for('static',filename='assets/bankLogo.png')}}" alt="logo" srcset=""></div>
+
+  <ul id="navOptions">
+      <li><button class="navButtons" onclick="openSignupForm()"><a href="">Sign Up</a></button></li>
+      <li><button class="navButtons" onclick="openLoginForm()"><a href="">Login</a></button></li>
+
+  </ul>
+
+</nav>
+
+<!-- The signup form -->
+<div class="form-popup" id="signupForm">
+<form action="/add_user" class="form-container" method="post">
+<h1>Signup</h1>
+
+
+<input type="text" placeholder="Enter First Name" name="firstName" required>
+<input type="text" placeholder="Enter Last Name" name="lastName" required>
+<input type="text" placeholder="Enter email" name="signup_email" required>
+
+
+
+<input type="password" placeholder="Create password" name="psw" required>
+
+<button type="submit" class="btn">Sign Up</button>
+<button type="button" class="btn cancel" onclick="closeSignupForm()">Close</button>
+</form>
+</div>
+
+<!--login form-->
+<div class="form-popup" id="loginForm">
+<form action="/userLogin" class="form-container" method="post">
+<h1>Login</h1>
+
+
+<input type="text" placeholder="Enter email" name="client_email" required>
+
+
+
+
+<input type="password" placeholder="Enter password" name="psw" required>
+
+<button type="submit" class="btn">Login</button>
+<button type="button" class="btn cancel" onclick="closeLoginForm()">Close</button>
+</form>
+</div>
+{% endblock %}
+
+<script src="{{url_for('static',filename='script.js')}}"></script>
+</body>
+</html>
